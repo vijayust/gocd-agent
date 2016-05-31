@@ -6,19 +6,16 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-execute "yum update" do
- command "yum -y update"
-end
 
-template "/etc/yum.repos.d/docker.repo" do
- source "docker.repo.rb"
+cookbook_file "/etc/yum.repos.d/docker.repo" do
+ source "docker.repo"
  owner "root"
  group "root"
  mode "0644"
 end
 
-template "/etc/yum.repos.d/gocd.repo" do
- source "gocd.repo.rb"
+cookbook_file "/etc/yum.repos.d/gocd.repo" do
+ source "gocd.repo"
  owner "root"
  group "root"
  mode "0644"
